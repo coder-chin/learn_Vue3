@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './02-compisitionAPI基础/03-自定义ref '
+import App from './03_computed和watch/watchEffect'
 
 const app = createApp(App)
 
