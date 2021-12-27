@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './03_computed和watch/watchEffect'
+import App from './基础案例/App.vue'
 
 const app = createApp(App)
 
