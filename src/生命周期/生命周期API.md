@@ -6,6 +6,7 @@ beforeUpdate -> onBeforeUpdate
 update -> onUpdate
 beforeDestroy -> onBeforeUnmount
 destroy -> onUnmounted
+activated -> onActivated
 deactivated -> onDeactivated
 errorCaptured -> onErrorCaptured
 
