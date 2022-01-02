@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './基础案例/App.vue'
+import App from './naiveui/App.vue'
 
 const app = createApp(App)
 
