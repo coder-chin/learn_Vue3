@@ -1,19 +1,4 @@
-# vue3
+## 原型图
 
-## Project setup
-```
-npm install
-```
+https://whimsical.com/vue3-Djb2TcWsLTPeapFdM3NaX
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
