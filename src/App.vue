@@ -1,86 +1,40 @@
 <template>
-  <div>
-    <h1 @click="add">{{count}}</h1>
-    <h1>{{double}}</h1>
-    <h2>X: {{x}}</h2>
-    <h2>Y: {{y}}</h2>
-    <h1 v-if="loading">Loading...</h1>
-    <img :src="result[0].url" v-else>
+  <div class="container">
+    <column-list :list='list'></column-list>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, computed, reactive, toRefs, onUpdated, watch, onMounted } from 'vue'
-import useMousePosition from './hooks/useMousePosition'
-import useURLLoader from './hooks/useURLLoader'
-interface DataProps {
-  count: number;
-  double: number;
-}
-interface DogResult {
-  message: string;
-  status: string;
-}
-interface CatResult {
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-}
+import { defineComponent } from 'vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ColumnList, { ColumnProps } from './ColumnList.vue'
 
-export default {
-  name: "App",
-  setup() {
-    // setup 准备的意思 没有this
-    onMounted(() => {
-      console.log('mounted')
-    })
-    onUpdated(() => {
-      console.log('update')
-    })
-    const data: DataProps = reactive({
-      count: 0,
-      add: () => { data.count++ },
-      double: computed( () => data.count * 2),
-    })
-    const refData = toRefs(data)
+const testData: ColumnProps[] = [
+  {
+    id: 1,
+    title: 'test1的专栏',
+    description: '这是的test1专栏，有一段非常有意思的简介，可以更新一下欧',
+    avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg?x-oss-process=image/resize,m_pad,h_100,w_100'
+  },
+  {
+    id: 2,
+    title: 'test2的专栏',
+    description: '这是的test2专栏，有一段非常有意思的简介，可以更新一下欧',
+    // avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg?x-oss-process=image/resize,m_pad,h_100,w_100'
+  }
+]
 
-    const greetings = ref('')
-    document.title = "title" + greetings.value
-
-    watch(greetings, (newValue, oldValue) => {
-      document.title = "title" + greetings.value
-    })
-
-    // let count = ref(0)
-    // let add = () => {
-    //   count.value++
-    // }
-    // let double = computed(() => {
-    //   return count.value * 2
-    // })
-    const { x, y } = useMousePosition()
-    // const {  result, loading, loaded } = useURLLoader<DogResult>('https://dog.ceo/api/breeds/image/random')
-    const { result, loading, loaded } = useURLLoader<CatResult[]>('https://api.thecatapi.com/v1/images/search?limit=1')
-    watch(result, () => {
-      if(result.value) {
-        console.log('value', result.value[0].url)
-      }
-    })
-
+export default defineComponent({
+  name: 'App',
+  components: {
+    ColumnList
+  },
+  setup () {
     return {
-      ...refData,
-      x,
-      y,
-      result, 
-      loaded,
-      loading
-      // count,
-      // add,
-      // double
+      list: testData
     }
   }
-}
+})
 </script>
 
 <style scoped>
