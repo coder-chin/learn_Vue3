@@ -26,6 +26,7 @@ export default {
     onUpdated(() => {
       console.log('update')
     })
+    
     const data = reactive({
       count: 0,
       add: () => { data.count++ },
