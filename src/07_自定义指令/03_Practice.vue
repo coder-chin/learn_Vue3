@@ -1,15 +1,13 @@
 <template>
-  <div>
-
-  </div>
+  <div v-format>{{time}}</div>
 </template>
 
 <script>
 export default {
-  setup () {
-    
-
-    return {}
+  data() {
+    return {
+      time: 1645289935
+    }
   }
 }
 </script>

@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import "tailwindcss/tailwind.css";
-import App from "./06_组件化开发/provide和inject的使用v3/App.vue";
+import registerDirectives from './07_自定义指令/directives'
+import App from './07_自定义指令/App'
 
 const app = createApp(App)
+registerDirectives(app)
 app.mount("#app");
 
 // 全局混入
